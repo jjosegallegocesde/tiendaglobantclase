@@ -1,0 +1,15 @@
+.fuente{
+    font-family: 'Amatic SC', cursive;
+}
+
+.fondo{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(118,124,124,0.8743872549019608) 40%, rgba(51,63,65,1) 73%);  
+}
+
+.fondobanner{
+    background-image: url("img/foto2.jpg");
+    height: 550px;
+    background-attachment: fixed;
+    background-position: top center;
+}
