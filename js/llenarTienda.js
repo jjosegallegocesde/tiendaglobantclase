@@ -3,6 +3,7 @@
 
 export function llenarTienda(){
 
+
     let productos=[
 
         {nombre:"Batimovil a escala",precio:400000,foto:"../img/tienda1.jpg",descripcion:"Batimovil a escala de la ultima pelicula"},
@@ -18,6 +19,68 @@ export function llenarTienda(){
 
     ]
 
-    console.log(productos)
+   //Rutina para recorrer el arreglo y crear las tarjetas de cada producto
+
+   //1. crear una referencia a un elemento "PADRE" o "BASE" donde anclaremos los demas
+   let fila=document.getElementById("fila")
+
+   //2. Necesito recorrer un arreglo
+   productos.forEach(function(producto){
+
+    //3. CREAMOS LOS ELEMENTOS NECESARIOS PARA PINTAR LOS PRODUCTOS
+    let columna=document.createElement("div")
+    columna.classList.add("col")
+
+    let tarjeta=document.createElement("div")
+    tarjeta.classList.add("card")
+    tarjeta.classList.add("h-100")
+
+    let imagen=document.createElement("img")
+    imagen.classList.add("card-img-top")
+    imagen.classList.add("p-3")
+    imagen.classList.add("h-100")
+    imagen.src=producto.foto
+
+    let separador=document.createElement("hr")
+    separador.classList.add("w-50")
+    separador.classList.add("mx-auto")
+    separador.classList.add("d-block")
+
+    let nombre=document.createElement("h5")
+    nombre.classList.add("fw-bold")
+    nombre.classList.add("text-center")
+    nombre.classList.add("mx-3")
+    nombre.textContent=producto.nombre
+
+    let precio=document.createElement("h6")
+    precio.classList.add("text-center")
+    precio.classList.add("text-muted")
+    precio.textContent="$"+producto.precio
+
+    let botonAmpliarInfo=document.createElement("button")
+    botonAmpliarInfo.setAttribute("type","button")
+    botonAmpliarInfo.classList.add("btn")
+    botonAmpliarInfo.classList.add("btn-outline-dark")
+    botonAmpliarInfo.classList.add("mx-3")
+    botonAmpliarInfo.classList.add("mb-3")
+    botonAmpliarInfo.textContent="Ver producto"
+
+
+    //VAMOS A ANCLAR (PONER)(DISPONER) LAS ETIQUETAS
+    //QUE ACABAMOS DE CREAR EN NUESTRA BASE
+    tarjeta.appendChild(imagen)
+    tarjeta.appendChild(separador)
+    tarjeta.appendChild(nombre)
+    tarjeta.appendChild(precio)
+    tarjeta.appendChild(botonAmpliarInfo)
+    
+    columna.appendChild(tarjeta)
+    fila.appendChild(columna)
+
+    
+
+   })
+
+
 
 }
