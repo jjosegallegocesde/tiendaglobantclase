@@ -3,6 +3,13 @@ import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com
 
 //1. Para registrar a una persona en su app
 let botonRegistro=document.getElementById("botonregistro")
+
+
+//1.1 CREO UNA REFERENCIA GLOBAL A LA VENTANA MODAL
+let modalLogin=new bootstrap.Modal(document.getElementById('modallogin'))
+let mensajeLogin=document.getElementById("mensajelogin")
+
+
 botonRegistro.addEventListener("click",function(event){
     event.preventDefault()
     
@@ -20,14 +27,22 @@ botonRegistro.addEventListener("click",function(event){
         // Signed in
         const user = userCredential.user;
         // ...
+        mensajeLogin.textContent="exito en el registro. Bienvenido PAE"
+        modalLogin.show()
         console.log("TODO BN PAPA")
     })
+
+
+    
     .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
     // ..
+        mensajeLogin.textContent=`Error: ${errorCode} : ${errorMessage}`
+        modalLogin.show()
         console.log("ERROR")
 
     });
 
 })
+
